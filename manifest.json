@@ -1,0 +1,64 @@
+{
+	"name": "页面滑块处理chrome插件",
+	"version": "1.0",
+	"manifest_version": 2,
+	"description": "齐天",
+	"icons": {
+		"16": "img/king-icon.png",
+		"48": "img/king-icon.png",
+		"128": "img/king-icon.png"
+	},
+	"browser_action": {
+		"default_icon": "img/king-icon.png",
+		"default_title": "111",
+		"default_popup": "popup.html"
+	},
+	"homepage_url": "https://www.oyorooms.com/",
+	"content_scripts": [
+		{
+			"js": [
+				"utils/jquery-3.1.js",
+				"utils/config.js",
+				"utils/axios.js",
+				"utils/request.js",
+				"utils/cal.js",
+				"utils/utils.js",
+				"utils/common.js",
+				"src/meituan/solider2.js",
+				"src/meituan/index.js",
+				"src/meituan/order.js"
+			],
+			"matches": [
+				"*://eb.meituan.com/eb/order*",
+				"*://eb.meituan.com/ebk/consume/order.html*",
+				"*://eb.meituan.com/ebk/pricemanage/prepay.html*"
+			],
+			"run_at": "document_idle"
+		}
+	],
+	"permissions": [
+		"storage",
+		"cookies",
+		"webRequest",
+		"webRequestBlocking",
+		"tabs",
+		"activeTab",
+		"proxy",
+		"http://*/*",
+		"https://*/*",
+		"management"
+	],
+	"background": {
+		"scripts": [
+			"utils/jquery-3.1.js",
+			"utils/axios.js",
+			"utils/config.js",
+			"utils/cal.js",
+			"utils/utils.js",
+			"utils/request.js",
+			"utils/common.js",
+			"src/background.js"
+		]
+	},
+	"content_security_policy": "script-src 'self'; object-src 'self'"
+}
